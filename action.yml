@@ -1,0 +1,28 @@
+name: 'easyware-io/bump-version'
+description: 'Bump version of an app.'
+author: 'easyware.io'
+inputs:
+  app:
+    required: true
+    description: 'Valid values are `angular` and `quarkus`.'
+  path:
+    required: false
+    description: 'Path of file to read in case of not root directory'
+  new-version:
+    required: true
+    description: 'Sets new version in pom.xml or package.json.'
+  error-on-unknown:
+    required: false
+    description: 'If true, throws error if version is not found. Default is false.'
+    default: 'false'
+outputs:
+  oldVersion:
+    description: 'Old version of the app'
+  newVersion:
+    description: 'New version of the app'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: shield
+  color: orange
